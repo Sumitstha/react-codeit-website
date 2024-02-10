@@ -1,0 +1,19 @@
+.navlink{
+    text-decoration: none !important;
+    color:black;
+}
+.navlink:hover{
+    color: orange;
+}
+.active{
+    color:rgb(5, 156, 156);
+    text-decoration: none;
+}
+.sticky-navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+   z-index: 100;
+   transition: top 0.3s ease; 
+  }
+ 
