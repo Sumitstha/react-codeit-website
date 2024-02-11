@@ -2,7 +2,8 @@
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
+import {useNavigate} from 'react-router-dom';
+// import React, { useState, useEffect } from 'react';
 
 import './navbar.css';
 
@@ -10,27 +11,19 @@ import './navbar.css';
 const NavBar = (props) => {
 const {items}=props
 // console.log(items);
-const [isSticky, setIsSticky] = useState(false);
-const loc=useLocation().pathname
+const nav=useNavigate();
+
+const loc=useLocation().pathname;
+
+const handleLogin=()=>{
+  nav("/login");
+}
 
 
-useEffect(() => {
-  const handleScroll = () => {
-    const scrollPosition = window.scrollY;
-    setIsSticky(scrollPosition > 0);
-  };
 
-
-  window.addEventListener('scroll', handleScroll);
-
- 
-  return () => {
-    window.removeEventListener('scroll', handleScroll);
-  };
-}, []); 
   return (
     <div>
-<nav className={'navbar navbar-expand-lg bg-body-tertiary ' + (isSticky ? 'sticky-navbar' : '')}>
+<nav className="navbar navbar-expand-lg bg-body-tertiary  stickyNavbar">
 
   <div className="container-fluid">
     <h1 className="navbar-brand" style={{paddingBottom: '0px'}}>LOGO</h1>
@@ -48,11 +41,14 @@ useEffect(() => {
         </div>
        )
        )}
+       <NavLink to={"/admin/dashboard"} className={loc==="/admin/dashboard"? "active":"navlink"}>
+          Dashboard
+       </NavLink>
       </ul>
     </div>
     <div className="btnOut">
-    <p href="#" className="btn btn-primary "style={{paddingRight:'10px', marginRight:'10px', marginBottom:'0px'}}>Login</p>
-    <p href="#" className="btn btn-primary" style={{marginBottom:'0px'}}>Log Out</p>
+    <p className="btn btn-primary "style={{paddingRight:'10px', marginRight:'10px', marginBottom:'0px'}} onClick={handleLogin}>Login</p>
+    <p className="btn btn-danger" style={{marginBottom:'0px'}}>Log Out</p>
     </div>
   </div>
 </nav>

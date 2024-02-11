@@ -8,6 +8,8 @@ import PageNotFound from './pages/pagenotfound';
 import Blog from './pages/blog';
 import BlogDetails from './pages/blogdetails';
 import Navbar from './component/navbar';
+import Dashboard from './pages/admin/dashboard';
+import Login from './pages/auth/login';
 import {navBarItems} from './component/navbaritems';
 const App=()=> {
   return (
@@ -21,6 +23,8 @@ const App=()=> {
   <Route path='/gallery' element={<Gallery/>}/>
   <Route path='/blog' element={<Blog/>}/>
   <Route path='/blog/:id' element={<BlogDetails/>}/>
+  <Route path='/admin/dashboard' element={<Dashboard/>}/>
+  <Route path="/login" element={<Login />} />
   <Route path='/*' element={<PageNotFound/>}/>
  </Routes>
  </BrowserRouter>

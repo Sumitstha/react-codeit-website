@@ -9,7 +9,7 @@
     color:rgb(5, 156, 156);
     text-decoration: none;
 }
-.sticky-navbar {
+.stickyNavbar {
     position: fixed;
     top: 0;
     width: 100%;

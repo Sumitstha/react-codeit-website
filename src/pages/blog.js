@@ -76,7 +76,7 @@ const Blog = () => {
     }} >
     <div className='row' >
         {cardData?.map((item,index)=>(
-          <div key={index} className="col-md-4" style={{ marginBottom: "50px " }}>
+          <div key={index} className="col-md-4" style={{ marginBottom: "50px ", display:"flex", justifyContent:"center" }}>
           <Card
              btnlabel={item.btnlabel}
         description={item.description}
