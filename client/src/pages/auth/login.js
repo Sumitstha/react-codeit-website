@@ -1,16 +1,28 @@
 // import React, { useState } from 'react';
 import React, { useState } from "react";
 import {useNavigate} from 'react-router-dom';
+import {useDispatch, useSelector} from 'react-redux';
 
 const Login = () => {
+  const dispatch=useDispatch();
+  // console.log(dispatch);
   const nav=useNavigate();
-  const[error,setError]=useState(false)
+  const[error,setError]=useState(false);
     const handleLoginSubmit=(e)=>{
         e.preventDefault();
         const email=e.target.elements.email.value;
         const password=e.target.elements.password.value;
         if (email==="admin@gmail.com" && password==="password"){
-            nav("/");
+          const token="12345678";
+          localStorage.setItem("_token_",token);
+          dispatch({
+            type:"LOGIN",
+            payload:{
+              isLoggedIn:true,
+              token:token,
+            },
+          });
+            nav("/admin/dashboard");
         }
         else{
           setError(true);
